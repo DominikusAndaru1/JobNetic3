@@ -395,7 +395,7 @@
                                             if (!confirm('Are you sure to delete this Job?')) return;
 
                                             try {
-                                                const response = await fetch(`http://localhost:3000/api/job-deletes/${jobId}`, { method: 'DELETE' });
+                                                const response = await fetch(`/api/job-deletes/${jobId}`, { method: 'DELETE' });
                                                 if (!response.ok) throw new Error('Failed to delete jobs');
 
                                                 // Hapus baris dari DOM
