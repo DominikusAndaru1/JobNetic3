@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3.9.1
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
           cache: 'npm'
@@ -23,15 +23,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Optional jika kamu punya test script
-      - name: Run tests
-        run: npm test
+      - name: Start server in background
+        run: |
+          nohup node server.js &
+          sleep 5
 
-      # Optional jika kamu punya build script
+      # Contoh: Run tests yang butuh akses ke server
+      - name: Run API tests
+        run: |
+          curl http://localhost:3000/api/jobs || exit 1
+          # atau jalankan npm test yang butuh server ini
+
+      # Optional build step
       - name: Build
         run: npm run build
-      - name: Start local server
-        run: |
-          nohup npm run start &
-          sleep 10
-
