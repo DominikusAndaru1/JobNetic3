@@ -30,3 +30,8 @@ jobs:
       # Optional jika kamu punya build script
       - name: Build
         run: npm run build
+      - name: Start local server
+        run: |
+          nohup npm run start &
+          sleep 10
+
