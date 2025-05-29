@@ -22,7 +22,7 @@ const supabase = createClient('https://ejrgtezpzksmtzpxuurg.supabase.co', 'eyJhb
 
 // Middlewares
 app.use(cors({
-  origin: 'http://127.0.0.1:5500', // Ganti sesuai frontend kamu
+  origin: 'https://dominikusandaru1.github.io/', // Ganti sesuai frontend kamu
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
